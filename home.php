@@ -1,9 +1,13 @@
 <?php
 
 require_once "./components/db_connect.php";
+$weekOpen = "";
+$day = "";
 
 $sql = "SELECT 
     Events.event_id,
+    DAYNAME(Events.event_date) AS event_day_name,
+    WEEK(Events.event_date, 1) AS event_week,
     Events.event_date,
     Events.event_time,
     Events.event_description,
@@ -28,22 +32,24 @@ $result = mysqli_query($connect, $sql);
 
 $content = "";
 
+// Organize events by week and day
+$events_by_week = [];
+
 if (mysqli_num_rows($result) == 0) {
     $content .= "<p>No data found!</p>";
 } else {
     $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     foreach ($rows as $key => $row) {
+        $week = $row['event_week'];
+        $day = $row['event_day_name'];
 
-        $content .= "<div class='card' style='width: 18rem;'>
-            <div class='card-body'>
-                <h5 class='card-title'>{$row['event_description']}</h5>
-                <p class='card-text'>{$row['team1_name']} VS {$row['team2_name']}</p>
-            </div>
-        </div>
-        ";
+        // Group events by week and then by day
+        $events_by_week[$week][$day][] = $row;
     }
 }
+
+$days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 ?>
 
@@ -55,15 +61,50 @@ if (mysqli_num_rows($result) == 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Calendar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./custom_slider/styles.css">
 </head>
 
 <body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Sport Calendar</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="#">Events</a>
+                        <a class="nav-link" href="#">Tickets</a>
+                        <a class="nav-link" href="#">About</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
 
     <main>
-        <?= $content ?>
+
+
+        <div class="slider">
+            <div class="slides">
+                <?php require_once "week-view.php" ?>
+            </div>
+            <button class="prev" onclick="prevSlide()">
+                &#10151;</button>
+            <button class="next" onclick="nextSlide()">&#10151;</button>
+        </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="./custom_slider/index.js"></script>
 </body>
 
 </html>

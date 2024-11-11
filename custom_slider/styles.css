@@ -1,0 +1,64 @@
+.slider {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slides {
+    width: 90%;
+    margin: auto;
+}
+
+.week-card {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.my-card {
+    flex-grow: 1;
+    margin: 0.1rem;
+}
+
+.week-card.displaySlide {
+    display: flex;
+    animation: slide-effect 0.4s ease-in;
+}
+
+.day {
+    margin: 0.1rem;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.503);
+}
+
+.slider button {
+    padding: 5px 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0.391);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+@keyframes slide-effect {
+    from {
+        /* transform: translateX(0%); */
+        opacity: 0.5;
+    }
+    to {
+        /* transform: translateX(-100%); */
+        opacity: 1;
+    }
+}
