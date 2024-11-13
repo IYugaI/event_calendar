@@ -1,50 +1,5 @@
 <?php
 
-require_once "./components/db_connect.php";
-
-$week = (int)$_GET['week']; // Make sure week is an integer
-$day = mysqli_real_escape_string($connect, $_GET['day']); // Escape day for safety
-
-$sql = "
-    SELECT 
-        Events.event_id,
-        DAYNAME(Events.event_date) AS event_day_name,
-        WEEK(Events.event_date, 1) AS event_week,
-        Events.event_date,
-        Events.event_time,
-        Events.event_description,
-        Sports.sport_name,
-        Location.location_name,
-        Location.address,
-        team1.team_name AS team1_name,
-        team2.team_name AS team2_name
-    FROM 
-        Events
-    INNER JOIN Sports ON Events.sport_fk = Sports.sport_id
-    INNER JOIN Location ON Events.location_fk = Location.location_id
-    INNER JOIN event_teams AS et1 ON Events.event_id = et1.event_id
-    INNER JOIN event_teams AS et2 ON Events.event_id = et2.event_id
-    INNER JOIN Teams AS team1 ON et1.team_id = team1.team_id
-    INNER JOIN Teams AS team2 ON et2.team_id = team2.team_id
-    WHERE 
-        team1.team_id < team2.team_id
-        AND WEEK(Events.event_date, 1) = $week
-        AND DAYNAME(Events.event_date) = '$day'
-    ORDER BY 
-        Events.event_date, Events.event_time;
-";
-
-// Execute the query and fetch the results
-$result = mysqli_query($connect, $sql);
-
-// Check if the query ran successfully
-if (!$result) {
-    die("Query failed: " . mysqli_error($connect));
-}
-
-// Fetch the data into an associative array
-$events = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +30,7 @@ $events = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="/home.php">Events</a>
+                        <a class="nav-link active" aria-current="page" href="#">Events</a>
                         <a class="nav-link" href="#">Tickets</a>
                         <a class="nav-link" href="#">About</a>
                     </div>
@@ -83,6 +38,8 @@ $events = mysqli_fetch_all($result, MYSQLI_ASSOC);
             </div>
         </nav>
     </header>
+
+
 
     <main>
         <div class="outer-container">
@@ -133,9 +90,58 @@ $events = mysqli_fetch_all($result, MYSQLI_ASSOC);
         </div>
     </main>
 
+    <!-- <main>
+        <div class="outer-container">
+            <div class="event-list">
+                <h3>Monday</h3>
+                <div class="card my-card event">
+                    <div class="card-body my-card-body">
+                        <h5 class="sport-title">Football</h5>
+                        <div class="teams">
+                            <p class="my-card-text">Liverpool FC</p>
+                            <p class="my-card-text px-2 vs">vs</p>
+                            <p class="my-card-text">Barcelona FC</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card my-card event">
+                    <div class="card-body my-card-body">
+                        <h5 class="sport-title">Football</h5>
+                        <div class="teams">
+                            <p class="my-card-text">Liverpool FC</p>
+                            <p id="vs" class="my-card-text px-2">vs</p>
+                            <p class="my-card-text">Barcelona FC</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card my-card event">
+                    <div class="card-body my-card-body">
+                        <h5 class="sport-title">Football</h5>
+                        <div class="teams">
+                            <p class="my-card-text">Liverpool FC</p>
+                            <p id="vs" class="my-card-text px-2">vs</p>
+                            <p class="my-card-text">Paris Saint-Germain</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="details-container">
+                <h3>Details</h3>
+                <div class="details event-description">
+                    <p>Football match between Bayern Munich and Paris Saint-Germain</p>
+                </div>
+                <div class="details event-location">
+                    <p>Location: Old Trafford Stadium</p>
+                    <p>Address: Manchester, England</p>
+                </div>
+                <div class="details event-time">
+                    <p>Time: 18:30</p>
+                </div>
+            </div>
+        </div>
+    </main> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="./js/event-details.js"></script>
 </body>
 
 </html>

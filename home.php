@@ -81,7 +81,7 @@ $days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturd
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="#">Events</a>
+                        <a class="nav-link active" aria-current="page" href="/home.php">Events</a>
                         <a class="nav-link" href="#">Tickets</a>
                         <a class="nav-link" href="#">About</a>
                     </div>

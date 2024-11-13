@@ -19,7 +19,7 @@
                                         <h5 class="sport-title"><?php echo htmlspecialchars($event['sport_name']); ?></h5>
                                         <div class="teams">
                                             <p class="my-card-text"><?php echo htmlspecialchars($event['team1_name']); ?></p>
-                                            <p id="vs" class="my-card-text px-2">vs</p>
+                                            <p class="my-card-text px-2 vs">vs</p>
                                             <p class="my-card-text"><?php echo htmlspecialchars($event['team2_name']); ?></p>
                                         </div>
                                     </div>
@@ -34,7 +34,7 @@
 
                     <?php endif; ?>
                     <div class="more-btn-container">
-                        <a href="" class="my-btn">show more</a>
+                        <a href="day-details.php?week=<?= $week ?>&day=<?= $day ?>" class="my-btn">show more</a>
                     </div>
                 </div>
             <?php endforeach; ?>
