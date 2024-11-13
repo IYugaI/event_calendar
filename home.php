@@ -91,8 +91,6 @@ $days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturd
     </header>
 
     <main>
-
-
         <div class="slider">
             <div class="slides">
                 <?php require_once "week-view.php" ?>

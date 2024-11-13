@@ -1,3 +1,5 @@
+/* SLIDER STYLES */
+
 .slider {
     position: relative;
     width: 100%;
@@ -8,28 +10,6 @@
 .slides {
     width: 90%;
     margin: auto;
-}
-
-.week-card {
-    display: none;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.my-card {
-    flex-grow: 1;
-    margin: 0.1rem;
-}
-
-.week-card.displaySlide {
-    display: flex;
-    animation: slide-effect 0.4s ease-in;
-}
-
-.day {
-    margin: 0.1rem;
-    text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.503);
 }
 
 .slider button {
@@ -44,6 +24,138 @@
     cursor: pointer;
 }
 
+/* END */
+
+/* WEEK CONTAINER AND CARD STYLES */
+
+.week-header {
+    width: 100%;
+    text-align: center;
+}
+
+.week-card {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.week-card.displaySlide {
+    display: flex;
+    animation: slide-effect 0.4s ease-in;
+}
+
+/* END */
+
+/* DAY CONTAINER AND EVENT CARD STYLES */
+
+.day-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    height: 320px;
+    border: 1px solid rgba(0, 0, 0, 0.326);
+    margin: 0.2rem;
+    overflow: hidden;
+}
+
+.events-container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    height: 80%;
+    margin-bottom: 0.2rem;
+}
+
+.my-card {
+    margin: 0.3rem;
+    height: 48%;
+}
+
+.my-card-body {
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    /* padding: 0.3rem; */
+}
+
+.sport-title {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+#vs {
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.teams {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.my-card-text {
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1rem;
+    padding: 0.3rem;
+    margin: 0;
+}
+
+.no-events {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-events p {
+    text-align: center;
+    font-weight: 500;
+}
+
+.day {
+    height: 10%;
+    margin: 0.1rem;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.503);
+}
+
+.more-btn-container {
+    height: 8%;
+    padding: 0.2rem;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.177);
+    z-index: 2;
+}
+
+.my-btn {
+    display: inline-block;
+    text-decoration: none;
+    outline: 0;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #0d82ad6c;
+    color: #0e0e10;
+    padding: 0 1rem;
+}
+
+/* END */
+
+/* LEFT AND RIGHT SLIDER BUTTONS */
+
 .prev {
     left: 0;
 }
@@ -51,6 +163,8 @@
 .next {
     right: 0;
 }
+
+/* END */
 
 @keyframes slide-effect {
     from {
