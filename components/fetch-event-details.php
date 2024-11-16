@@ -9,7 +9,9 @@ if (isset($_GET['event_id'])) {
                 Events.event_description,
                 Events.event_time,
                 Location.location_name,
-                Location.address
+                Location.address,
+                DAYNAME(Events.event_date) AS event_day_name,
+                WEEK(Events.event_date, 1) AS event_week
             FROM Events
             INNER JOIN Location ON Events.location_fk = Location.location_id
             WHERE Events.event_id = ?";

@@ -68,8 +68,8 @@ $events = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <h3><?php echo htmlspecialchars($day); ?></h3> <!-- Display selected day -->
 
                 <?php if (!empty($events)): ?>
-                    <?php foreach ($events as $event): ?>
-                        <div class="card my-card event" data-event-id="<?php echo htmlspecialchars($event['event_id']); ?>">
+                    <?php foreach ($events as $index => $event): ?>
+                        <div class="card my-card event <?php echo $index === 0 ? 'active' : ''; ?>" data-event-id="<?php echo htmlspecialchars($event['event_id']); ?>">
                             <div class="card-body my-card-body">
                                 <h5 class="sport-title"><?php echo htmlspecialchars($event['sport_name']); ?></h5>
                                 <div class="teams">

@@ -72,6 +72,13 @@
     height: 48%;
 }
 
+.my-card.active {
+    /* background-color: #e0f7fa;  */
+    border: 3px solid #e5d9a6;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  */
+    box-shadow: rgba(0, 0, 0, 0.287) 0px 4px 4px;
+}
+
 .my-card-body {
     padding: 0;
     position: relative;

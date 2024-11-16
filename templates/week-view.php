@@ -14,7 +14,7 @@
                             for ($i = 0; $i < $max_events; $i++):
                                 $event = $events_by_day[$day][$i];
                             ?>
-                                <div class="card my-card event">
+                                <div class="card my-card event" data-event-id="<?php echo htmlspecialchars($event['event_id']); ?>">
                                     <div class="card-body my-card-body">
                                         <h5 class="sport-title"><?php echo htmlspecialchars($event['sport_name']); ?></h5>
                                         <div class="teams">

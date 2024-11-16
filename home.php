@@ -70,7 +70,7 @@ $days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturd
     <main>
         <div class="slider">
             <div class="slides">
-                <?php require_once "week-view.php" ?>
+                <?php require_once "./templates/week-view.php" ?>
             </div>
             <button class="prev" onclick="prevSlide()">
                 &#10151;</button>
@@ -80,6 +80,7 @@ $days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturd
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="./js/slider.js"></script>
+    <script src="./js/redirect.js"></script>
 </body>
 
 </html>

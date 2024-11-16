@@ -28,9 +28,18 @@ main {
     align-items: center;
     height: 90%;
     width: 350px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin: 0 0.5rem;
     padding: 0.1rem;
+    /* background-color: #b8b8b8; */
+}
+
+.event-list h3 {
+    color: white;
+    background-color: #4b4e5e;
+    width: 300px;
+    text-align: center;
+    padding: 0.3rem;
 }
 
 .my-card {
@@ -38,6 +47,21 @@ main {
     height: 130px;
     width: 300px;
     cursor: pointer;
+    border: none;
+    background-color: #797c8f;
+    border-radius: 0;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 4px;
+}
+
+.my-card.active {
+    /* background-color: #e0f7fa;  */
+    border: 3px solid #e5d9a6;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  */
+    box-shadow: rgba(0, 0, 0, 0.287) 0px 4px 4px;
+}
+
+.my-card:hover {
+    background-color: #82859a;
 }
 
 .my-card-body {
@@ -51,8 +75,11 @@ main {
 
 .sport-title {
     font-size: 1.2rem;
-    font-weight: 400;
+    font-weight: 700;
     margin-bottom: 0;
+    color: #ffffff;
+    border-bottom: 2px solid white;
+    padding-bottom: 0.2rem;
 }
 
 .vs {
@@ -72,9 +99,11 @@ main {
 .my-card-text {
     text-align: center;
     font-size: 1rem;
+    font-weight: 500;
     line-height: 1rem;
     padding: 0.3rem;
     margin: 0;
+    color: #ffffff;
 }
 
 /* END */
@@ -84,20 +113,30 @@ main {
 .details-container {
     height: 90%;
     width: 600px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin: 0 0.5rem;
     padding: 0.1rem;
+    /* background-color: #b8b8b8; */
 }
 
 .details-container h3 {
     margin-left: 0.5rem;
+    margin-bottom: 0.8rem;
+    color: white;
+    background-color: #4b4e5e;
+    width: 300px;
+    /* text-align: center; */
+    padding: 0.3rem 1rem;
 }
 
 .details {
-    border: 1px solid rgba(0, 0, 0, 0.423);
+    /* border: 1px solid rgba(0, 0, 0, 0.423); */
     margin: 0 0.5rem;
     margin-bottom: 0.5rem;
     padding: 1rem;
+    background-color: #797c8f;
+    color: white;
+    font-weight: 600;
 }
 
 /* END */
