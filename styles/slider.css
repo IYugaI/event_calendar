@@ -29,8 +29,10 @@
 /* WEEK CONTAINER AND CARD STYLES */
 
 .week-header {
+    margin-top: 1rem;
     width: 100%;
     text-align: center;
+    font-weight: 300;
 }
 
 .week-card {
@@ -54,29 +56,32 @@
     justify-content: space-between;
     width: 300px;
     height: 320px;
-    border: 1px solid rgba(0, 0, 0, 0.326);
+    border: 1px solid rgba(0, 0, 0, 0.208);
     margin: 0.2rem;
     overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.205) 0px 2px 2px;
 }
 
 .events-container {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-around; */
     height: 80%;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.1rem;
 }
 
 .my-card {
     margin: 0.3rem;
+    margin-top: 0;
     height: 48%;
+    border: none;
+    background-color: #797c8f;
+    border-radius: 0;
+    cursor: pointer;
 }
 
-.my-card.active {
-    /* background-color: #e0f7fa;  */
-    border: 3px solid #e5d9a6;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  */
-    box-shadow: rgba(0, 0, 0, 0.287) 0px 4px 4px;
+.my-card:hover {
+    background-color: #82859a;
+    box-shadow: rgba(0, 0, 0, 0.205) 0px 3px 3px;
 }
 
 .my-card-body {
@@ -86,21 +91,22 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    /* padding: 0.3rem; */
 }
 
 .sport-title {
+    color: white;
     font-size: 1.2rem;
-    font-weight: 400;
+    font-weight: 700;
     margin-bottom: 0;
 }
 
 .vs {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.8rem;
 }
 
 .teams {
+    font-weight: 500;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -110,6 +116,7 @@
 }
 
 .my-card-text {
+    color: white;
     text-align: center;
     font-size: 1rem;
     line-height: 1rem;
@@ -131,17 +138,16 @@
 
 .day {
     height: 10%;
-    margin: 0.1rem;
+    margin: 0.4rem;
     text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.503);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.208);
 }
 
 .more-btn-container {
-    height: 8%;
-    padding: 0.2rem;
+    height: 10%;
     display: flex;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.177);
+    background-color: rgba(0, 0, 0, 0.208);
     z-index: 2;
 }
 
@@ -152,11 +158,17 @@
     border: none;
     cursor: pointer;
     font-weight: 600;
-    border-radius: 4px;
     font-size: 1rem;
-    background-color: #0d82ad6c;
-    color: #0e0e10;
-    padding: 0 1rem;
+    background-color: #a18e8e;
+    color: #ffffff;
+    padding: 0.2rem 1rem;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.my-btn:hover {
+    background-color: #ad9999;
 }
 
 /* END */

@@ -73,8 +73,8 @@ $days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturd
                 <?php require_once "./templates/week-view.php" ?>
             </div>
             <button class="prev" onclick="prevSlide()">
-                &#10151;</button>
-            <button class="next" onclick="nextSlide()">&#10151;</button>
+                &#11164;</button>
+            <button class="next" onclick="nextSlide()">&#11166;</button>
         </div>
     </main>
 

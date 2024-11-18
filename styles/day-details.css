@@ -4,7 +4,6 @@ main {
     align-items: center;
     width: 100%;
     height: 100%;
-    border: 1px solid greenyellow;
 }
 
 /* OUTER CONTAINER */
@@ -15,7 +14,6 @@ main {
     align-items: center;
     width: 90vw;
     height: 90vh;
-    border: 1px solid darkgoldenrod;
 }
 
 /* END */
@@ -28,10 +26,10 @@ main {
     align-items: center;
     height: 90%;
     width: 350px;
-    /* border: 1px solid red; */
     margin: 0 0.5rem;
     padding: 0.1rem;
-    /* background-color: #b8b8b8; */
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .event-list h3 {
@@ -54,14 +52,13 @@ main {
 }
 
 .my-card.active {
-    /* background-color: #e0f7fa;  */
     border: 3px solid #e5d9a6;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  */
     box-shadow: rgba(0, 0, 0, 0.287) 0px 4px 4px;
 }
 
 .my-card:hover {
     background-color: #82859a;
+    box-shadow: rgba(0, 0, 0, 0.205) 0px 3px 3px;
 }
 
 .my-card-body {

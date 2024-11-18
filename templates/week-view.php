@@ -34,9 +34,12 @@
 
                     <?php endif; ?>
                     <div class="more-btn-container">
-                        <a href="day-details.php?week=<?= $week ?>&day=<?= $day ?>" class="my-btn">show more</a>
+                        <?php if ($event_count > 2): ?>
+                            <a href="day-details.php?week=<?= $week ?>&day=<?= $day ?>" class="my-btn">show all</a>
+                        <?php endif ?>
                     </div>
                 </div>
+                <?php $event_count = 0; ?>
             <?php endforeach; ?>
         </div>
     <?php endforeach; ?>
