@@ -24,6 +24,10 @@
     cursor: pointer;
 }
 
+.slider button:hover {
+    background-color: rgba(0, 0, 0, 0.303);
+}
+
 /* END */
 
 /* WEEK CONTAINER AND CARD STYLES */

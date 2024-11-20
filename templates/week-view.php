@@ -1,10 +1,10 @@
 <div class="week-container">
     <?php foreach ($events_by_week as $week => $events_by_day): ?>
         <div class="week-card">
-            <h3 class="week-header">Week <?= $week ?></h3>
+            <h3 class="week-header">Week <?= $week ?>,<span> <?= $week_range[$week]['week_start_display'] ?></span> -<span> <?= $week_range[$week]['week_end_display'] ?></span></h3>
             <?php foreach ($days_of_week as $day): ?>
                 <div class="day-container">
-                    <h5 class="day"><?= $day; ?></h5>
+                    <h5 class="day"><span><?= $day; ?>, </span><?= $days_carbon[$week][$day]['date_short'] ?></h5>
                     <?php if (!empty($events_by_day[$day])): ?>
                         <div class="events-container">
                             <?php

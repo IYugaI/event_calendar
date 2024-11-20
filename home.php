@@ -1,6 +1,17 @@
 <?php
 
 require_once "./components/db_connect.php";
+require 'vendor/autoload.php';
+
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
+
+$year = 2024;
+
+// Create a CarbonPeriod for the entire year
+$year_start = Carbon::create($year, 1, 1);
+$year_end = Carbon::create($year, 12, 31);
+
 $weekOpen = "";
 $day = "";
 
@@ -8,6 +19,12 @@ $sql = "SELECT
     Events.event_id,
     DAYNAME(Events.event_date) AS event_day_name,
     WEEK(Events.event_date, 1) AS event_week,
+     DATE_FORMAT(
+        DATE_SUB(Events.event_date, INTERVAL (WEEKDAY(Events.event_date)) DAY), '%Y-%m-%d'
+    ) AS week_start,
+    DATE_FORMAT(
+        DATE_ADD(Events.event_date, INTERVAL (6 - WEEKDAY(Events.event_date)) DAY), '%Y-%m-%d'
+    ) AS week_end,
     Events.event_date,
     Events.event_time,
     Events.event_description,
@@ -34,6 +51,7 @@ $content = "";
 
 // Organize events by week and day
 $events_by_week = [];
+$days_carbon = [];
 
 if (mysqli_num_rows($result) == 0) {
     $content .= "<p>No data found!</p>";
@@ -46,6 +64,28 @@ if (mysqli_num_rows($result) == 0) {
 
         // Group events by week and then by day
         $events_by_week[$week][$day][] = $row;
+
+        // Days range for each week
+        $week_range[$week] = [
+            'week_start' => $row['week_start'],
+            'week_end' => $row['week_end'],
+            'week_start_display' => Carbon::parse($row['week_start'])->format('F d'),
+            'week_end_display' => Carbon::parse($row['week_end'])->format('F d')
+        ];
+    }
+
+    foreach ($week_range as $week => $week_num) {
+        $week_range_carbon = CarbonPeriod::create($week_num['week_start'], $week_num['week_end']);
+
+        foreach ($week_range_carbon as $day_carbon) {
+            $day_name = $day_carbon->format('l');
+            $days_carbon[$week][$day_name] = [
+                'date_short' => $day_carbon->format('d'),
+                'date' => $day_carbon->format('d-m-Y'),
+                'day_name' => $day_name,
+                'month' => $day_carbon->format('F')
+            ];
+        }
     }
 }
 
@@ -67,6 +107,12 @@ $days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturd
 <body>
     <?php require_once "./templates/navbar.php" ?>
 
+    <?php
+    echo '<pre>';
+    // var_dump($week_range);
+    // var_dump($days_carbon);
+    echo '</pre>';
+    ?>
     <main>
         <div class="slider">
             <div class="slides">
