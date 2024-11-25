@@ -1,4 +1,4 @@
-# Event Calendar Project
+# Event Calendar Project :calendar:
 
 This project demonstrates the implementation of core functionalities for a simple **Event Calendar**. It also includes optional features such as a slider, a week-based calendar system, AJAX-driven interactions, and API-based data fetching.
 
