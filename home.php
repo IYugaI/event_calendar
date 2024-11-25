@@ -107,16 +107,10 @@ $days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturd
 <body>
     <?php require_once "./templates/navbar.php" ?>
 
-    <?php
-    echo '<pre>';
-    // var_dump($week_range);
-    // var_dump($days_carbon);
-    echo '</pre>';
-    ?>
     <main>
         <div class="slider">
             <div class="slides">
-                <?php require_once "./templates/week-view.php" ?>
+                <?php require_once "./templates/week_view.php" ?>
             </div>
             <button class="prev" onclick="prevSlide()">
                 &#11164;</button>

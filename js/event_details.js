@@ -10,7 +10,7 @@ document.querySelectorAll('.event').forEach((card) => {
         this.classList.add('active');
 
         // Make an AJAX request to fetch details for the clicked event
-        fetch(`../components/fetch-event-details.php?event_id=${eventId}`)
+        fetch(`../components/fetch_event_details.php?event_id=${eventId}`)
             .then((response) => response.json())
             .then((data) => {
                 // Update the details section with the received data
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             eventCard.classList.add('active');
 
             // Fetch and display the details for this event
-            fetch(`../components/fetch-event-details.php?event_id=${eventIdFromUrl}`)
+            fetch(`../components/fetch_event_details.php?event_id=${eventIdFromUrl}`)
                 .then((response) => response.json())
                 .then((data) => {
                     // Update the details section with the received data

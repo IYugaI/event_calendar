@@ -35,7 +35,7 @@
                     <?php endif; ?>
                     <div class="more-btn-container">
                         <?php if ($event_count > 2): ?>
-                            <a href="day-details.php?week=<?= $week ?>&day=<?= $day ?>" class="my-btn">show all</a>
+                            <a href="day_details.php?week=<?= $week ?>&day=<?= $day ?>" class="my-btn">show all</a>
                         <?php endif ?>
                     </div>
                 </div>

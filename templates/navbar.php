@@ -17,7 +17,7 @@
                     <a class="nav-link active" aria-current="page" href="/home.php">Events</a>
                     <a class="nav-link" href="#">Tickets</a>
                     <a class="nav-link" href="#">About</a>
-                    <a class="nav-link ms-auto" href="/event-form.php">Create Event</a>
+                    <a class="nav-link ms-auto" href="/event_form.php">Create Event</a>
                 </div>
             </div>
         </div>
