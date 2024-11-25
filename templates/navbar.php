@@ -13,10 +13,11 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
+                <div class="navbar-nav w-100">
                     <a class="nav-link active" aria-current="page" href="/home.php">Events</a>
                     <a class="nav-link" href="#">Tickets</a>
                     <a class="nav-link" href="#">About</a>
+                    <a class="nav-link ms-auto" href="/event-form.php">Create Event</a>
                 </div>
             </div>
         </div>

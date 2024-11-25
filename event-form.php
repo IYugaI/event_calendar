@@ -45,12 +45,11 @@ if (mysqli_num_rows($result_location) == 0) {
 <body>
     <?php require_once "./templates/navbar.php" ?>
 
-    <div id="redirect-message">
-        Redirecting to the home page...
-    </div>
-
     <main>
-        <div id="alert"></div>
+        <div id="alert" class="success">
+            Event created and teams assigned successfully!
+        </div>
+        <h3 class="form-header">Create new Event</h3>
         <form class="my-form" id="create-form" method='POST' enctype='multipart/form-data'>
             <div class="form-field">
                 <label for="eventDate">Event Date: </label>

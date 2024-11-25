@@ -36,8 +36,7 @@ function assignTeams(event_id, team1, team2) {
         let response = JSON.parse(this.responseText);
 
         if (response.status === 'success') {
-            alert('Event created and teams assigned successfully!');
-            document.getElementById('redirect-message').style.display = 'block';
+            document.getElementById('alert').style.display = 'block';
             setTimeout(function () {
                 window.location.href = 'home.php';
             }, 2500);
