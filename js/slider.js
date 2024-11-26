@@ -2,7 +2,6 @@ const slides = document.querySelectorAll('.slides .week-card');
 let slideIndex = 0;
 
 document.addEventListener('DOMContentLoaded', initializeSlider);
-// console.log(slides.length);
 
 function initializeSlider() {
     if (slides.length > 0) {

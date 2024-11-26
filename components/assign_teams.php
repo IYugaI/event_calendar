@@ -5,8 +5,18 @@ $event_id = $_POST['event_id'] ?? null;
 $team1 = $_POST['team1'] ?? null;
 $team2 = $_POST['team2'] ?? null;
 
-if (!$event_id || !$team1 || !$team2 || $team1 == $team2) {
-    echo json_encode(['status' => 'error', 'message' => 'Invalid teams of evend ID']);
+if (!$event_id) {
+    echo json_encode(['status' => 'error', 'message' => 'Invalid event!']);
+    exit;
+}
+
+if (!$team1 || !$team2) {
+    echo json_encode(['status' => 'error', 'message' => 'Invalid team!']);
+    exit;
+}
+
+if ($team1 == $team2) {
+    echo json_encode(['status' => 'error', 'message' => 'Teams must be different!']);
     exit;
 }
 
